@@ -1,20 +1,26 @@
 package com.example.spring_flow.features.user.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.spring_flow.features.user.domain.dto.UserRequestDTO;
+import com.example.spring_flow.features.user.domain.dto.UserResponseDTO;
 import com.example.spring_flow.features.user.repository.UserMapper;
+
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 //service: 비즈니스 로직을 구현하는 역할
 public class UserService {
 
-    @Autowired
-    private UserMapper userMapper;
+   private final UserMapper userMapper;
 
 
     public int insertService(UserRequestDTO request) {
@@ -24,10 +30,13 @@ public class UserService {
     }
 
 
-    public UserRequestDTO selectService(String userId) {
+    public List<UserResponseDTO> selectService() {
         System.out.println(">>>debug selectService");
-        List<UserResponseDTO> list = userMapper.selectRow(userId);
-        return userMapper.selectRow(userId);
+        return userMapper.selectRow();
     }
     
+    public Optional<UserResponseDTO> loginService(UserRequestDTO request) {
+        System.out.println(">>>debug selectService");
+        return userMapper.loginRow(request);
+    }
 }

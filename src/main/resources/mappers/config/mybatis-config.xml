@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+    <typeAliases>
+    <!-- typeAlias, package -->
+        <typeAlias alias="userRequest" type="com.example.spring_flow.features.user.domain.UserRequest"/>
+        <typeAlias alias="userResponse" type="com.example.spring_flow.features.user.domain.UserResponse"/>
+    </typeAliases>
+    </typeAliases>
+
+
+    <!--user package--> 
+    <!-- <package name="com.example.spring_flow.features.user.domain.dto"/> -->
+       
+</configuration>

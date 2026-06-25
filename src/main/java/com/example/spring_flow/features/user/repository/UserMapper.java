@@ -2,6 +2,7 @@
 package com.example.spring_flow.features.user.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -29,6 +30,7 @@ try{
 @Mapper
 public interface UserMapper {
     public int insertRow(UserRequestDTO request);
-    public List<UserResponseDTO> selectRow(String userId);
+    public List<UserResponseDTO> selectRow();
+    public Optional<UserResponseDTO> loginRow(UserRequestDTO request);
     
 }

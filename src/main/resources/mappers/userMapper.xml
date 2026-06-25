@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 파라미터를 전달할 때는 parameterType을 사용합니다. -->
+<mapper namespace="com.example.spring_flow.features.user.repository.UserMapper">
+    <insert id="insertRow" parameterType="com.example.spring_flow.features.user.domain.dto.UserRequestDTO">
+        INSERT INTO user_tbl (EMAIL, PASSWORD, NAME) VALUES (#{email}, #{password}, #{name})
+    </insert>
+
+    <!-- 반환값이 있을 때는 resultType 또는 resultMap을 사용합니다. -->
+    <select id="selectRow" resultType="com.example.spring_flow.features.user.domain.dto.UserResponseDTO">
+        SELECT EMAIL, PASSWORD, NAME FROM user_tbl WHERE EMAIL = #{email}
+    </select>
+</mapper>

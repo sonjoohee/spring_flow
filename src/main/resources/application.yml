@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    default: dev  # 실행 시 옵션 없으면 dev로 실행되게 함
+
+
+#mybatis setting
+mybatis:
+    mapper-locations: classpath:mappers/**/*Mapper.xml
+    type-aliases-package: com.example.spring_flow.features.user.domain.entity
